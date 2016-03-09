@@ -34,5 +34,4 @@ javascript:(function(){
 }());
 ```
 
-Want to save it right away as bookmarklet. Save this link: getAllComputedFontSizes
-[getAllComputedFontSizes](javascript:!function(){var e,o=[],l=[],n=document.querySelectorAll("*");for(e=0;e<n.length;++e){var t=window.getComputedStyle(n[e],null).getPropertyValue("font-size"),c=l.indexOf(t);-1==c?(l.push(t),o.push([t,1])):o[c]=[t,o[c][1]+1]}console.table?(console.log("All computed FontSizes on each and every DOM-ELement:"),console.table(o)):console.log("All computed FontSizes on each and every DOM-ELement: ",o)alert("Open your console.")}();)
+Want to save it right away as bookmarklet. Save this link: <a href="javascript:!function(){var e,o=[],l=[],n=document.querySelectorAll("*");for(e=0;e<n.length;++e){var t=window.getComputedStyle(n[e],null).getPropertyValue("font-size"),c=l.indexOf(t);-1==c?(l.push(t),o.push([t,1])):o[c]=[t,o[c][1]+1]}console.table?(console.log("All computed FontSizes on each and every DOM-ELement:"),console.table(o)):console.log("All computed FontSizes on each and every DOM-ELement: ",o)}();">allComputedFontSizes</a>
