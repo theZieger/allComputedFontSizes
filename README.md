@@ -4,32 +4,25 @@ Just use this small bookmarklet or adopt the code for your own purposes.
 
 ```
 javascript:(function(){
+    'use strict'
 
-    var aComputedFontSizes = [];
-    var aFontSizeList = [];
-    var aElements = document.querySelectorAll('*'), nIterator;
+    var aComputedFontSizes = [],
+        aFontSizeList = [];
 
-    var buildTable = function() {
+    document.querySelectorAll('*').forEach(function(oElement) {
+        var sFontSize = window.getComputedStyle(oElement, null).getPropertyValue('font-size'),
+            nIndex = aFontSizeList.indexOf(sFontSize);
 
-    };
-
-    for (nIterator = 0; nIterator < aElements.length; ++nIterator) {
-        var sFontSize = window.getComputedStyle(aElements[nIterator], null).getPropertyValue('font-size');
-        var nIndex = aFontSizeList.indexOf(sFontSize);
         if (nIndex == -1) {
             aFontSizeList.push(sFontSize);
             aComputedFontSizes.push([sFontSize, 1]);
         } else {
-            aComputedFontSizes[nIndex] = [sFontSize, aComputedFontSizes[nIndex][1] + 1];
+            aComputedFontSizes[nIndex] = [sFontSize, ++aComputedFontSizes[nIndex][1]];
         }
-    }
+    });
 
-    if (console.table) {
-        console.log('All computed FontSizes on each and every DOM-ELement:');
-        console.table(aComputedFontSizes);
-    } else {
-        console.log('All computed FontSizes on each and every DOM-ELement: ', aComputedFontSizes);
-    }
+    console.log('All computed FontSizes on each and every DOM-ELement:');
+    console.table(aComputedFontSizes);
 
 }());
 ```
